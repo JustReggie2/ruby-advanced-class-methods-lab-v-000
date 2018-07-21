@@ -24,9 +24,8 @@ class Song
   end
 
   def self.create_by_name(name)
-    song = self.new
+    song = self.create 
     song.name = name
-    song.save
     song
   end
 
@@ -37,11 +36,9 @@ class Song
   def self.find_or_create_by_name(name)
     if self.find_by_name(name)
       return self.find_by_name(name)
-
     else
       self.create_by_name(name)
     end
-
     #self.create_by_name(name) unless self.find_by_name(name)
   end
 
